@@ -1,0 +1,12 @@
+{% extends 'note/base.html' %}
+
+
+{% block content %}
+
+    <div class="item" align="center" style="height:300px; width:500px; margin: 5px; padding:5px; border-radius:5px;">
+        <span style="float: right;"><a href="delete"><b>X</b></a></span>
+        <a class="edit" href="update"><h2 style="margin-top: 30px; text-align:center;">{{ object.title }}</h2></a>
+        <a class="edit" href="update"><p>{{ object.description }}</p></a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+{% extends 'st_base.html' %}
+
+
+{% block content %}
+
+    <div class="" align="center" style="background-color: #f4e192; height:auto; width: 400px; margin-top: 20vh; padding:5px; border-radius: 5px;">
+        <form name="form" style="margin-top: 40px;" action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Log In">
+        </form>
+        <div style="margin-top: 20px; color: red;">
+            {% if messages %}
+                {% for message in messages %}
+                        <h5>{{ message }}</h5>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

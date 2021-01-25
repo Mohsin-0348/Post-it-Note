@@ -1,0 +1,26 @@
+{% extends 'note/base.html' %}
+
+
+{% block content %}
+    <script type="text/javascript">
+        function validate() {
+			if (document.form.title.value=="") {
+				alert ("Please add a title!")
+				return false
+			}
+			if (document.form.description.value=="") {
+				alert ("Please add description!")
+				return false
+			}
+		}
+    </script>
+    <div class="item" align="center" style="height:300px; width:500px; margin: 5px; padding:5px; border-radius:3px;">
+        <form name="form" style="margin-top: 30px;" action="" method="POST" onsubmit="return validate()">
+            {% csrf_token %}
+            <input type="text" name="title" style="margin: 10px; text-align: center;" placeholder="Title..."><br>
+            <textarea cols="40" rows="8" name="description" style="margin: 10px; text-align: center;" placeholder="Description..."></textarea><br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+{% endblock %}

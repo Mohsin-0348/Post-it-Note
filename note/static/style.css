@@ -1,0 +1,27 @@
+body{
+    background: #020020 url("bg1.JPG") no-repeat;
+    background-size: cover;
+    background-position: fixed;
+}
+a{
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+}
+.app-title{
+    color: #FF5722;
+    font-weight: bold;
+    font-family: cursive;
+}
+p{
+     margin: auto;
+     width: 90%;
+     border-radius:5px;
+     padding: 5px;
+}
+.item{
+    background: #00ff00 url('note1.PNG') no-repeat;
+    background-size: cover;
+    font-family: cursive;
+}

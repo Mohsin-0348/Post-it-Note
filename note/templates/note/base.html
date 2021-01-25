@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post note</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+        a{
+            color: #000;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+
+        .navbar{
+            background-color: #43248f;
+        }
+        .dropdown-menu{
+            min-width: 1rem;
+            padding: 0;
+            margin: 5px -10px 0;
+        }
+        .dropdown-item:hover{
+            background-color: #aaa;
+            border-radius: 2px;
+        }
+        .edit:hover{
+            color: #111;
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+          <a class="navbar-brand" href="{% url 'home-view' %}">
+              {% load static %} <img src="{% static 'logo.PNG' %}" width="40" height="40"  alt="Note"/>
+
+                <span class="app-title">POST-IT NOTE</span>
+          </a>
+        {% if user.is_active %}
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Menu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="../../../../{{ user.user_name }}/{{ user.password }}/user_id">User ID</a>
+                    <a class="dropdown-item" href="#">Help</a>
+                    <a class="dropdown-item" href="../../../../{{ user.user_name }}/{{ user.password }}/logout">Log out</a>
+                </div>
+            </div>
+        {% endif %}
+
+    </nav>
+
+    <div align="center" style="margin: auto;">
+
+        {% if user.is_active %}
+            {% block content %}
+            {% endblock %}
+        {% else %}
+            <script type="text/javascript">
+                window.location = "{% url 'home-view' %}";
+            </script>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

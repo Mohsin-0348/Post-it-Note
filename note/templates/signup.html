@@ -1,0 +1,13 @@
+
+{% extends 'st_base.html' %}
+
+
+{% block content %}
+    <div class="" align="center" style="background-color: #f4e192; height:auto; width: 400px; margin-top: 15vh; padding:5px; border-radius: 5px;">
+        <form style="margin-top: 30px;" action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+{% endblock %}

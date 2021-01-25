@@ -1,0 +1,25 @@
+{% extends 'note/base.html' %}
+
+
+{% block content %}
+
+    <div align="center">
+        {% for item in object_list %}
+            <div class="item" align="center" style="float:left; height:200px; width:350px; margin: 5px; padding:5px; border-radius:3px;">
+                <h4 style="margin-top: 20px;"><a href="{{ item.id }}">{{ item.title }}</a></h4>
+                <p>{{ item.description }}</p>
+            </div>
+        {% endfor %}
+            <div class="item" align="center" style="float:left; height:200px; width:350px; margin: 5px; padding:5px; border-radius:3px;">
+                <h1 style="margin-top: -20px; font-size:150px;"><a href="create">+</a></h1>
+            </div>
+    </div>
+
+
+    {% for message in messages %}
+        <div>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endblock %}

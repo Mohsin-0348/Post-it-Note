@@ -1,0 +1,17 @@
+{% extends 'note/base.html' %}
+
+
+{% block content %}
+
+    <div class="item" align="center" style="height:300px; width:500px; margin: 5px; padding:5px; border-radius:3px;">
+        <h2 style="margin-top: 30px; text-align:center;">{{ object.title }}</h2>
+        <p>{{ object.description }}</p>
+    </div>
+    <div align="center" style="background-color:#999; width: 400px; margin: 5px; padding:5px; border: 2px solid #f00; border-radius:5px;">
+        <form action="" method="POST">{% csrf_token %}
+            <h2>Do you want to delete "<b>{{ object.title }}</b>"?</h2>
+            <input type="submit" value="Delete">..<a href="../{{ object.id }}"><span style="background-color:#eee; border: 1px solid #111;">Cancel</span></a>
+        </form>
+    </div>
+
+{% endblock %}
